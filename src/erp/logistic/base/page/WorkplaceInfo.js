@@ -5,8 +5,7 @@ import {
     searchWorkplaceList,
     addWorkplaceTO,
     delWorkplaceTO,
-    saveWorkplace,
-    updateWorkplace
+    saveWorkplace
 } from 'erp/logistic/base/action/BasicInfoAction';
 import MyDialog from 'util/LogiUtil/MyDialog';
 import AddWorkplace from 'erp/logistic/base/page/AddWorkplace';
@@ -18,22 +17,19 @@ function WorkplaceInfo(props) {
     const close = () => {
         setAddOpenDialog(false);
     };
-
-    //store 에 있는 모든 데이터를 가져와 state에 담다
     const workplaceList = useSelector(state => state.logistic.basicinfo.workplaceList);
-  
     const list = workplaceList.filter(list => list.status !== 'DELETE');
     const dispatch = useDispatch();
     const column = {
         columnDefs: [
             { width: '80', headerCheckboxSelection: false, checkboxSelection: true },
             { headerName: '사업장 코드', field: 'workplaceCode', hide: true },
-            { headerName: '사업장', field: 'workplaceName',editable: true },
-            { headerName: '사업장등록번호', field: 'businessLicenseNumber' ,editable: true},
-            { headerName: '법인등록번호', field: 'corporationLicenseNumber',editable: true },
-            { headerName: '대표자', field: 'workplaceCeoName' ,editable: true},
-            { headerName: '업태', field: 'workplaceBusinessConditions' ,editable: true}, // editable : 편집가능
-            { headerName: '종목', field: 'workplaceBusinessItems',editable: true } // editable : 편집가능
+            { headerName: '사업장', field: 'workplaceName' },
+            { headerName: '사업장등록번호', field: 'businessLicenseNumber' },
+            { headerName: '법인등록번호', field: 'corporationLicenseNumber' },
+            { headerName: '대표자', field: 'workplaceCeoName' },
+            { headerName: '업태', field: 'workplaceBusinessConditions' }, // editable : 편집가능
+            { headerName: '종목', field: 'workplaceBusinessItems' } // editable : 편집가능
         ]
     };
 
@@ -63,18 +59,6 @@ function WorkplaceInfo(props) {
         // console.log(workplaceList);
         dispatch(saveWorkplace(workplaceList));
     };
-    const updateClick = () => {
-        // console.log(workplaceList);
-        dispatch(updateWorkplace(workplaceList));
-        /*
-        결과: {
-            type:'src/erp/logistic/Saga/UPDATE_WORKPLACE_LIST'
-            payload:{
-                
-            }
-        }
-        */
-    };
 
     const onSubmit = workplaceTo => {
         dispatch(addWorkplaceTO({ workplaceTo }));
@@ -86,7 +70,7 @@ function WorkplaceInfo(props) {
     };
 
     useEffect(() => {
-        dispatch(searchWorkplaceList());//carmelCase로 BasicInfoReducer로 가다   
+        dispatch(searchWorkplaceList());
     }, [dispatch]);
     // 여기는 리덕스를 활용해보자 !!
     return (
@@ -98,8 +82,6 @@ function WorkplaceInfo(props) {
                 list={list}
                 rowSelection="multiple"
                 api={api}
-                editType="fullRow"
-               
             >
                 <Button
                     variant="contained"
@@ -109,12 +91,6 @@ function WorkplaceInfo(props) {
                 >
                     사업장 추가
                 </Button>
-                <Button variant="contained" color="secondary" onClick={updateClick}>
-                   수정
-                </Button>{ ' ' }
-                <Button variant="contained" color="secondary" onClick={saveClick}>
-                    저장
-                </Button>{ ' ' }
                 <Button
                     variant="contained"
                     color="secondary"
@@ -123,7 +99,17 @@ function WorkplaceInfo(props) {
                 >
                     삭제
                 </Button>
-               
+                <Button variant="contained" color="secondary" onClick={saveClick}>
+                    저장
+                </Button>
             </MyGrid>
             <MyDialog open={addOpenDialog} close={close}>
-            
+                <div>
+                    <AddWorkplace onSubmit={onSubmit} />
+                </div>
+            </MyDialog>
+        </>
+    );
+}
+
+export default WorkplaceInfo;
