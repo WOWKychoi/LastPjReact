@@ -4,7 +4,9 @@ import { startLoading, finishLoading } from './loading';
 export default function createRequestSaga(type, request) {
     const SUCCESS = `${type}_SUCCESS`;
     const FAILURE = `${type}_FAILURE`;
-    console.log("createRequestSaga");
+    console.log("두번째 *****************");
+    //createRequestSaga(XXXX);
+    console.log("index.js에서 RootSaga->BasicInfoSaga->createRequestSaga 호출");
     return function*(action) {
         console.log('createRequestSaga: action');
         console.log(action);
