@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import { menuListRequest } from 'common/reducer/commonReducer';
 import { reLoginSuccess } from 'common/reducer/commonReducer';
 
-const AppContainer = props => { //어디서 부르느너거야ㅓ;ㅏㅣㅓㅣㅏㅓ;ㅏㅐ
+const AppContainer = props => {
     console.log("index.js에서 AppContainer를 호출");
     console.log(props);
     const { isAuthenticated, menuListRequest, reLoginSuccess, authorityCode } = props;

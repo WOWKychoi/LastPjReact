@@ -19,8 +19,9 @@ import Dashboard from 'common/page/dashboard/Dashboard';
 const sagaMiddleware = createSagaMiddleware();
 
 //Reducer들을 store안에 넣어서 서로 연결시키고 그 store를 만들어주는 역할을 하는 것이 createStore
+//Redux에 사용되는 모든 공통 Reducer들을 미리 생성
 const store = createStore(RootReducers, composeWithDevTools(applyMiddleware(sagaMiddleware)));
-
+//Redux에 사용될 middleware를 미리 생성
 sagaMiddleware.run(RootSaga);
 
 const render = () => {
