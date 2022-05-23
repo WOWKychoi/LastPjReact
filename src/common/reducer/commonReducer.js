@@ -1,4 +1,5 @@
-import { createAction } from 'redux-actions';
+import { createAction } from 'redux-actions'; 
+//모든 액션에 일일이 액션 생성자를 넣어주지 않고 모든 정보 이름을 payload 값으로 통일하여 액션 생성 함수를 한줄로 표시
 import _ from 'lodash'; // https://lodash.com/docs/4.17.15 확인하자 라이브러리
 
 export const START_PROJECT = 'common/dashboard/reducer_startPrj';

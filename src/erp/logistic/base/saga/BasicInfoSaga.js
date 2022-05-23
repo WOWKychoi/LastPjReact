@@ -5,7 +5,7 @@ import * as api from '../api';
 
 const workplaceInfo = createRequestSaga(types.SEARCH_WORKPLACE_LIST, api.workplaceInfo);
 const saveWorkplace = createRequestSaga(types.SAVE_WORKPLACE, api.saveWorkplace);
-
+console.log("세번째 *****************");
 console.log("workplaceInfo :" +workplaceInfo)
 
 
