@@ -1,3 +1,4 @@
+/* eslint-disable-next-line */
 import React, { useEffect } from 'react';
 import App from './App';
 // redux
@@ -6,17 +7,13 @@ import { connect } from 'react-redux';
 import { menuListRequest } from 'common/reducer/commonReducer';
 import { reLoginSuccess } from 'common/reducer/commonReducer';
 
-const AppContainer = props => {
+const AppContainer = props => { //props = {}
     console.log("index.js에서 AppContainer를 호출");
-    console.log(props);
     const { isAuthenticated, menuListRequest, reLoginSuccess, authorityCode } = props;
-    console.log(props);
-    // authorityRequest();
+    //authorityRequest();
     const UserInfo = async () => {
-        const loggedInfo = sessionStorage.getItem('id_token'); // 로그인 정보를 세션에서 가져옵니다.
-
-        if (!loggedInfo) return; // 로그인 정보가 없다면 여기서 멈춥니다.
-
+        const loggedInfo = sessionStorage.getItem('id_token'); //로그인 정보를 세션에서 가져옵니다.
+        if (!loggedInfo) return; //로그인 정보가 없다면 여기서 멈춥니다.
         try {
             await reLoginSuccess();
         } catch (e) {
@@ -35,9 +32,9 @@ const AppContainer = props => {
     return <App isAuthenticated={isAuthenticated} />;
 };
 
-const mapStateToProps = state => {
+const mapStateToProps = state => { //state를 props화
     return {
-        isAuthenticated: state.logInOutReducer.isAuthenticated,
+        isAuthenticated: state.logInOutReducer.isAuthenticated, //store안의 data를 props로 등록
         authorityCode: state.logInOutReducer.empInfo.authorityCode
     };
 };

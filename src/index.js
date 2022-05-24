@@ -9,6 +9,7 @@ import { ThemeSwitcherProvider } from 'mui-theme-switcher';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; //app에 store를 쉽게 연동시킬수 있게 도와주는 component
 import createSagaMiddleware from 'redux-saga'; //react,redux application의 side effect(부수 효과)를 향상시켜주는 lib
+/* eslint-disable-next-line */
 import { composeWithDevTools } from 'redux-devtools-extension'; //redux store를 컨트롤 할 수 있는 확장 프로그램
 import RootReducers from 'root/RootReducer';
 import RootSaga from 'root/RootSaga';
@@ -31,10 +32,8 @@ const render = () => {
     const state = store.getState(); //store안의 상태를 가져와 줌
     ReactDOM.render(
         <Provider store={store}>{/* REACT app에 store가 연동 됨 */}
-           
             {state.dashReducer.startPrj === 'true' ? (
                 <ThemeProvider theme={Themes.default}>
-                    console.log(store);
                     <ThemeSwitcherProvider
                         lightTheme={Themes.default}
                         darkTheme={Themes.darkTheme}
@@ -46,10 +45,10 @@ const render = () => {
                 <Dashboard />
             )}
         </Provider>,
-
         document.getElementById('root')
     );
 };
+        
 store.subscribe(render);
 render();
 // If you want your app to work offline and load faster, you can change

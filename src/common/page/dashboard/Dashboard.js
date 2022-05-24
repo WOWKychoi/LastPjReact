@@ -22,13 +22,13 @@ function Content() {
         <>
             <Block factor={1} offset={0}>
                 <Block factor={1.2}>
-                    <Text left size={w * 0.0825} position={[-w / 3.2, 0.5, -1]} color="#d40749">
-                        (주)서울우유
+                    <Text left size={w * 0.0825} position={[-w / 3.2, 0.5, -1]} color="#d40749" >
+                        WELLCOME
                     </Text>
                 </Block>
                 <Block factor={1.0}>
                     <Dom position={[-w / 3.2, -w * 0.08 + 0.25, -1]}>
-                        React isn't magic, {mobile ? <br /> : ' '} It's adding innovation to thought
+                        즐거운 하루, {mobile ? <br /> : ' '} 화이팅 하세요
                     </Dom>
                 </Block>
             </Block>
@@ -41,9 +41,9 @@ function App() {
     // const scrollArea = useRef()
     // const onScroll = e => (state.top.current = e.target.scrollTop)
     // useEffect(() => void onScroll({ target: scrollArea.current }), [])
-
+    
     const startClick = e => {
-        e.preventDefault();
+        e.preventDefault(); //undefined
         dispatch({ type: types.START_PROJECT });
     };
     return (
@@ -68,7 +68,7 @@ function App() {
         ))}
       </div> */}
             <div className="frame">
-                <h1 className="frame__title">68th REACT PROJECT</h1>
+                <h1 className="frame__title">70th REACT PROJECT</h1>
                 <div className="frame__links">
                     <BrowserRouter>
                         <Link
