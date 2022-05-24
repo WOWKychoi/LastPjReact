@@ -17,11 +17,13 @@ import AppContainer from 'AppContainer';
 import Dashboard from 'common/page/dashboard/Dashboard';
 
 const sagaMiddleware = createSagaMiddleware();
-
 //Reducer들을 store안에 넣어서 서로 연결시키고 그 store를 만들어주는 역할을 하는 것이 createStore
 //Redux에 사용되는 모든 공통 Reducer들을 미리 생성
+console.log("import 된 RootReducers 사용");
 const store = createStore(RootReducers, composeWithDevTools(applyMiddleware(sagaMiddleware)));
+
 //Redux에 사용될 middleware를 미리 생성
+console.log("RootSagaMiddleware를 실행");
 sagaMiddleware.run(RootSaga);
 
 const render = () => {
@@ -29,8 +31,10 @@ const render = () => {
     const state = store.getState(); //store안의 상태를 가져와 줌
     ReactDOM.render(
         <Provider store={store}>{/* REACT app에 store가 연동 됨 */}
+           
             {state.dashReducer.startPrj === 'true' ? (
                 <ThemeProvider theme={Themes.default}>
+                    console.log(store);
                     <ThemeSwitcherProvider
                         lightTheme={Themes.default}
                         darkTheme={Themes.darkTheme}

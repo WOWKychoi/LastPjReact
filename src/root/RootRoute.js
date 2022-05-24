@@ -7,6 +7,8 @@ import Main from '../common/page/dashboard/components/Main';
 import Covid19 from '../common/page/dashboard/covid/Covid19';
 import CompanyMap from '../common/page/dashboard/map/CompanyMap';
 
+console.log("index.js -> AppContainer.js -> App.js -> layout.js 를 통해 모든 페이지 Rout 객체 생성");
+
 function RootRoute() {
     return (
         <>

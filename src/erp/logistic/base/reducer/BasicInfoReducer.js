@@ -7,7 +7,7 @@ const initialState = {
     DepartmentList: []
 };
 console.log("첫번째 *****************");
-console.log('index.js에서 import 될 때 호출 됨  @@@ basicInfoReducer');
+console.log('index.js -> RootReducer -> logistic/RootReducer @@@ basicInfoReducer');
 //4번 반복 됨 initialState에서 4개의 배열을 가져옴
 function basicinfo(state = initialState, action) {
     console.log("ACTION"+JSON.stringify(action));

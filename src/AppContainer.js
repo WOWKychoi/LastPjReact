@@ -10,6 +10,7 @@ const AppContainer = props => {
     console.log("index.js에서 AppContainer를 호출");
     console.log(props);
     const { isAuthenticated, menuListRequest, reLoginSuccess, authorityCode } = props;
+    console.log(props);
     // authorityRequest();
     const UserInfo = async () => {
         const loggedInfo = sessionStorage.getItem('id_token'); // 로그인 정보를 세션에서 가져옵니다.

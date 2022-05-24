@@ -15,6 +15,7 @@ import "ag-grid-community/dist/styles/ag-theme-balham-dark.css";
 
 import journaldetail from '../JournalDetail'
 
+console.log("RootRoute -> AccountRoute -> Container -> Combine -> JournalDetail")
 console.log("나와랏:"+journaldetail);
 
 const FinancialDialog = ({ open, close, divisionCodeData }) => {
