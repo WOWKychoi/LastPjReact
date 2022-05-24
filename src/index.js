@@ -9,6 +9,7 @@ import { ThemeSwitcherProvider } from 'mui-theme-switcher';
 import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux'; //app에 store를 쉽게 연동시킬수 있게 도와주는 component
 import createSagaMiddleware from 'redux-saga'; //react,redux application의 side effect(부수 효과)를 향상시켜주는 lib
+/* eslint-disable-next-line */
 import { composeWithDevTools } from 'redux-devtools-extension'; //redux store를 컨트롤 할 수 있는 확장 프로그램
 import RootReducers from 'root/RootReducer';
 import RootSaga from 'root/RootSaga';
@@ -17,10 +18,13 @@ import AppContainer from 'AppContainer';
 import Dashboard from 'common/page/dashboard/Dashboard';
 
 const sagaMiddleware = createSagaMiddleware();
-
 //Reducer들을 store안에 넣어서 서로 연결시키고 그 store를 만들어주는 역할을 하는 것이 createStore
+//Redux에 사용되는 모든 공통 Reducer들을 미리 생성
+console.log("import 된 RootReducers 사용");
 const store = createStore(RootReducers, composeWithDevTools(applyMiddleware(sagaMiddleware)));
 
+//Redux에 사용될 middleware를 미리 생성
+console.log("RootSagaMiddleware를 실행");
 sagaMiddleware.run(RootSaga);
 
 const render = () => {
@@ -41,10 +45,10 @@ const render = () => {
                 <Dashboard />
             )}
         </Provider>,
-
         document.getElementById('root')
     );
 };
+        
 store.subscribe(render);
 render();
 // If you want your app to work offline and load faster, you can change

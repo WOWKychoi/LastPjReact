@@ -34,10 +34,9 @@ const Message = () => {
         <MyTitleMessage>
             <div className="titleMessage">
                 <div className="main text-center mb-3">
-                    Hi, I am
                     <br />
                     <span>
-                        <strong>68th ERP</strong>
+                        <strong>Coding For FullStack</strong>
                     </span>
                 </div>
                 <div className="sub">

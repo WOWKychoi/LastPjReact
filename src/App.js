@@ -25,6 +25,7 @@ const App = ({ isAuthenticated }) => {
     // #######################################################################
 
     function PrivateRoute({ component, ...rest }) {
+        {console.log("/경로 -> /app경로 -> /login경로")}
         return (
             <Route
                 {...rest}
@@ -61,7 +62,7 @@ const App = ({ isAuthenticated }) => {
                             }}
                         />
                     ) : (
-                        React.createElement(component, props)
+                        React.createElement(component, props) //<Component props={props} />
                     )
                 }
             />

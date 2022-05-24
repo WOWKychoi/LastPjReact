@@ -4,6 +4,7 @@ import { Carousel } from 'react-bootstrap';
 import 인사 from './image/인사.jpg';
 import 회계 from './image/회계.jpg';
 import 물류 from './image/물류.jpg';
+
 const Main = () => {
     return (
         <div>

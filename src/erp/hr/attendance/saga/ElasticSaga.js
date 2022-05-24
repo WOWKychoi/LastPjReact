@@ -23,6 +23,7 @@ export const delElastic = createAction(ELASTIC_DELETE_TYPE);
 const searchElasticSaga = createRequestSaga(SEARCH_ELASTIC_SELECT_TYPE, api.searchElasticSaga);
 
 export function* onSearchElasticSaga() {
+    console.log("index.js -> RootSaga -> hr/RootSaga -> hr/attendance/index.js")
     console.log('탄력근무 조회 saga!!!!!!!');
     //범석 탄력근무 조회
     yield takeEvery(SEARCH_ELASTIC_SELECT_TYPE, searchElasticSaga);

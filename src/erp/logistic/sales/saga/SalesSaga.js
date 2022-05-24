@@ -2,9 +2,8 @@
 import { put, takeEvery, takeLatest, call, all } from 'redux-saga/effects';
 import axios from 'axios';
 import * as types from 'erp/logistic/sales/action/SalesActionType';
-import deliverySuccess from '../reducer/SalesReducer';
 
-
+console.log("SalesSaga");
 
 function* deliveryCompleteData(action) {
     try {

@@ -163,6 +163,7 @@ export const dashReducer = (state = initialState, action) => {
     switch (action.type) {
         case START_PROJECT:
             sessionStorage.setItem('dashboard_off', true);
+            console.log(state)
             return {
                 ...state,
                 startPrj: sessionStorage.getItem('dashboard_off')
@@ -196,6 +197,7 @@ export const logInOutReducer = (state = initialState, action) => {
             };
 
         case RELOGIN_SUCCESS:
+            console.log("reLoginSuccess")
             return {
                 ...state,
                 status: 'SUCCESS',
