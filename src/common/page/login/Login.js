@@ -71,9 +71,9 @@ const Login = ({
     const handleClickOpen = Comparing => {
         switch (Comparing) {
             case 'companyCode':
-                console.log("Reduce로 갈것");
+                console.log("Saga로 갈것");
                 searchCode({ type: Comparing });
-                console.log("Reduce 끝");
+                console.log("Saga 끝");
                 setOpenCompanyCodeDialog(true);
                 break;
             case 'workplaceCode':

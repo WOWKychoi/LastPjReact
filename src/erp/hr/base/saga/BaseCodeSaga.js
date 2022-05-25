@@ -24,6 +24,8 @@ function* codeSaga(action) {
         console.log(action.payload.type);
         if (action.payload.type === 'companyCode') {
             const { data } = yield axios.get('http://localhost:8282/hr/company/searchCompany');
+            console.log("dispatch로 다시 action 실행 --> BaseCodeReducer에서 type이 SEARCH_COMPANY_CODE로 변경됨.");
+            console.log(data.gridRowJson);
             yield put(actions.searchCompanyCode(data.gridRowJson));
         } else if (action.payload.type === 'workplaceCode') {
             const { data } = yield axios.get(
