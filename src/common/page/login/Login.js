@@ -56,6 +56,9 @@ const Login = ({
     const [openCompanyCodeDialog, setOpenCompanyCodeDialog] = useState(false);
 
     const enter = () => {
+        //root/RootSaga.js에서 생성해 놓은 middleware중 watchLogInOutSaga() 실행
+        console.log("common/saga/commonSaga/Logfunction* watchLogInOutSaga() 실행할 것");
+        console.log("logInOutRequest 경로 추적시 Saga와 연결(LOGIN_REQUEST)");
         handleLogin(empCode, password, companyCodes, workplaceCodes);
     };
 
@@ -68,7 +71,9 @@ const Login = ({
     const handleClickOpen = Comparing => {
         switch (Comparing) {
             case 'companyCode':
+                console.log("Reduce로 갈것");
                 searchCode({ type: Comparing });
+                console.log("Reduce 끝");
                 setOpenCompanyCodeDialog(true);
                 break;
             case 'workplaceCode':
@@ -103,6 +108,7 @@ const Login = ({
 
     return (
         <Grid container className={classes.container}>
+            {console.log("Login.js 화면 출력")}
             <div className={classes.logotypeContainer}>
                 <MyCarousal className={classes.logotypeImage} />
                 <Message />

@@ -135,6 +135,7 @@ export const menuLogi = menuList => ({
 export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 
 export const Auth = (state = authInitialState, action) => {
+    console.log("얘도 찍혀요?");
     switch (action.type) {
         case AUTHORITY:
             return {
@@ -180,6 +181,8 @@ export const dashReducer = (state = initialState, action) => {
 };
 
 export const logInOutReducer = (state = initialState, action) => {
+    console.log("watchLogInOutSaga() 실행 후 Reduce 실행");
+    console.log(action);
     switch (action.type) {
         case LOGIN:
             return {

@@ -27,7 +27,6 @@ function basicinfo(state = initialState, action) {
                     workplaceList: newList
                 };
             } else {
-              
                 return {
                     ...state
                 };

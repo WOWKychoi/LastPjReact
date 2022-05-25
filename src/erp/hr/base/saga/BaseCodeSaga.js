@@ -20,6 +20,8 @@ import axios from 'axios';
 
 function* codeSaga(action) {
     try {
+        console.log("LoginContainer -> src/hr/base/BaseCodeReducer -> BaseCodeSaga 실행");
+        console.log(action.payload.type);
         if (action.payload.type === 'companyCode') {
             const { data } = yield axios.get('http://localhost:8282/hr/company/searchCompany');
             yield put(actions.searchCompanyCode(data.gridRowJson));
@@ -45,6 +47,7 @@ export function* onCodeSearch() {
 }
 
 export default function* basecode() {
+    console.log("BaseCodeReducer -> BaseCodeSaga")
     yield all([
     //takeEvery(SEARCH_COMPANY_CODE, searchCompanyCodeSaga),
     //takeEvery(SEARCH_WORKPLACE_CODE, searchWorkPlaceCodeSaga),
