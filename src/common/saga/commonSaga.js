@@ -78,6 +78,8 @@ function* authoritySaga(action) {
 }
 
 export function* watchLogInOutSaga() {
+    //LOGIN_REQUEST로 찾아옴
+    console.log("common/saga/commonSaga/Logfunction* watchLogInOutSaga() 실행!!!!");
     yield takeEvery(LOGIN_REQUEST, logInOutSaga);
 }
 

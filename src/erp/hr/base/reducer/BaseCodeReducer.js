@@ -16,10 +16,12 @@ const initialState = {
 };
 
 const basecode = (state = initialState, action) => {
-
+  console.log(action);
   switch (action.type) {
-    
     case SEARCH_COMPANY_CODE:
+      console.log("searchCode : action이름 -> action 이름이 등록된 BaseCodeReducer.js가 실행");
+      console.log("function* basecode() BaseCodeSaga에서 generate 함수 실행될 것");
+      console.log(action.payload);
       return {
         ...state,
         company: action.payload,

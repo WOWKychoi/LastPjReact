@@ -29,6 +29,7 @@ sagaMiddleware.run(RootSaga);
 
 const render = () => {
     console.log("index.js 실행");
+    console.log("reduce에서 상태를 변경했을 시 store에 있는 상태값을 변경해 주기 위해 다시 호출");
     const state = store.getState(); //store안의 상태를 가져와 줌
     ReactDOM.render(
         <Provider store={store}>{/* REACT app에 store가 연동 됨 */}

@@ -33,6 +33,7 @@ const AppContainer = props => { //props = {}
 };
 
 const mapStateToProps = state => { //state를 props화
+    console.log("store에서 가져온 state를 props화 해서 사용하므로 상태값이 바뀌면 재랜더링됨");
     return {
         isAuthenticated: state.logInOutReducer.isAuthenticated, //store안의 data를 props로 등록
         authorityCode: state.logInOutReducer.empInfo.authorityCode

@@ -29,6 +29,7 @@ const initialState = {
 };
 
 const departmentList = (state = initialState, action) => {
+    console.log("이친구도 찍히나여");
     switch (action.type) {
         //사원등록
         case EMP_REGISTER_SUCCESS:

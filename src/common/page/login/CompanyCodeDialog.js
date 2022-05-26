@@ -69,7 +69,7 @@ const CompanyCodeDialog = ({ open, close, value }) => {
           >
             <AgGridReact
               columnDefs={accountColumnDefs}
-              rowData={value} // 뿌릴 data
+              rowData={value} // 뿌릴 data (action.payload에 담아온 데이터 key값과 grid field 값이 동일한 데이터를 넣어줌)
               rowSelection="single" // 하나만 선택 가능.
               onGridReady={onGridReady}
               onCellClicked={handleClose} // cell을 클릭하면, handleClose가 실행된다.

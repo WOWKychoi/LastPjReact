@@ -20,8 +20,12 @@ import axios from 'axios';
 
 function* codeSaga(action) {
     try {
+        console.log("LoginContainer -> src/hr/base/BaseCodeReducer -> BaseCodeSaga 실행");
+        console.log(action.payload.type);
         if (action.payload.type === 'companyCode') {
             const { data } = yield axios.get('http://localhost:8282/hr/company/searchCompany');
+            console.log("dispatch로 다시 action 실행 --> BaseCodeReducer에서 type이 SEARCH_COMPANY_CODE로 변경됨.");
+            console.log(data.gridRowJson);
             yield put(actions.searchCompanyCode(data.gridRowJson));
         } else if (action.payload.type === 'workplaceCode') {
             const { data } = yield axios.get(
@@ -45,6 +49,7 @@ export function* onCodeSearch() {
 }
 
 export default function* basecode() {
+    console.log("BaseCodeReducer -> BaseCodeSaga")
     yield all([
     //takeEvery(SEARCH_COMPANY_CODE, searchCompanyCodeSaga),
     //takeEvery(SEARCH_WORKPLACE_CODE, searchWorkPlaceCodeSaga),
