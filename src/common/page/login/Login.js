@@ -145,14 +145,15 @@ const Login = ({
                     {// Login 탭 내용
                     activeTabId === 0 && (
                         <>
-                            <Typography variant="h2" className={classes.greeting}>
-                                Good Morning User
+                            <Typography variant="h3" className={classes.greeting}>
+                                Good Morning
                             </Typography>
                             <Fade in={!isLogin}>
                                 <Typography color="secondary" className={classes.errorMessage}>
                                     {errorMsg}
                                 </Typography>
                             </Fade>
+                            <br/>
                             <TextField
                                 id="companyCode"
                                 InputProps={{
@@ -163,7 +164,6 @@ const Login = ({
                                     endAdornment: (
                                         <Button
                                             variant="contained"
-                                            size="small"
                                             color="primary"
                                             onClick={() => handleClickOpen('companyCode')}
                                             value="companyCode"
@@ -190,7 +190,6 @@ const Login = ({
                                     endAdornment: (
                                         <Button
                                             variant="contained"
-                                            size="small"
                                             color="primary"
                                             onClick={() => handleClickOpen('workplaceCode')}
                                             value="workplaceCode"
@@ -360,7 +359,7 @@ const Login = ({
                     )}
                 </div>
                 <Typography color="primary" className={classes.copyright}>
-                    © 2021 SeoulIt, Academy. All rights reserved.
+                    © 2022 SeoulIT, Academy. All rights reserved.
                 </Typography>
             </div>
         </Grid>

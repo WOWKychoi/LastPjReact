@@ -12,15 +12,15 @@ import RootRoute from "root/RootRoute";
 
 function Layout(props) {
   var classes = useStyles();
-
+  console.log(props);
   // global
   // var layoutState = useLayoutState();
   const isSidebarOpened = useSelector(
     ({ sideBarReducer }) => sideBarReducer.isSidebarOpened,
     [],
   );
-   const url = props.match.path
-   console.log('유알엘',url);
+  const url = props.match.path
+  console.log('홈페이지 출력 : /src/common/page/layout.js    '+url);
  
   return (
     <div className={classes.root}>

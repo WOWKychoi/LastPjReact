@@ -15,21 +15,23 @@ import { menuAll, menuAccount, menuHr, menuLogi } from '../reducer/commonReducer
 import history from 'util/history';
 
 function* logInOutSaga(action) {
+    console.log("Login -> LoginContainer -> commonReducer -> commonSaga");
     try {
         if (!!sessionStorage.getItem('id_token')) {
             yield put(logout());
             sessionStorage.clear();
         } else {
             yield put(login());
-
+            console.log("localhost를 이용해 port 번호로 node.js를 호출 -> node.js의 erp/sys/login url이 날라가게 됨");
             const { data } = yield axios.post(`http://localhost:4000/erp/sys/login`, {
                 empCode: action.payload.empCode,
                 password: action.payload.password,
                 companyCode: action.payload.companyCode,
                 workplaceCode: action.payload.workplaceCode
             });
-
-            const empInfo = data.empInfo;
+            
+            console.log(data.empInfo);
+            const empInfo = data.empInfo; //await baseService.myLogin(loginTo)
 
             if (!empInfo) {
                 yield put(loginFailure(data));

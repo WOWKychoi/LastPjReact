@@ -13,10 +13,13 @@ const AppContainer = props => { //props = {}
     //authorityRequest();
     const UserInfo = async () => {
         const loggedInfo = sessionStorage.getItem('id_token'); //로그인 정보를 세션에서 가져옵니다.
+        console.log("loggedInfo"+loggedInfo);
         if (!loggedInfo) return; //로그인 정보가 없다면 여기서 멈춥니다.
         try {
+            console.log("reLoginSuccess 실행");
             await reLoginSuccess();
         } catch (e) {
+            console.log("window.location.href 화면 이동");
             sessionStorage.clear();
             window.location.href = '/';
         }
