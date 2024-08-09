@@ -26,7 +26,7 @@ const App = ({ isAuthenticated }) => {
     //test-1
     //test-2
     //ky_1
-    //ky_1_1
+    //ky_1_1_1
     function PrivateRoute({ component, ...rest }) {
         {console.log("/경로 -> /app경로 -> /login경로")}
         return (
